@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import ja from 'vuetify/es5/locale/ja.js'
 
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -38,10 +39,23 @@ export default {
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
+    lang: {
+      locales: { ja },
+      current: 'ja',
+    },
     customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: false,
       themes: {
+        light: {
+          primary: '#673AB7',
+          secondary: '#F3E5F5',
+          accent: '#ffc107',
+          error: '#f44336',
+          warning: '#ffeb3b',
+          info: '#03a9f4',
+          success: '#4caf50'
+        },
         dark: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
