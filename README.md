@@ -1,4 +1,4 @@
-# vuetify-admin
+# nuxt-vutify-sandob
 
 ## Build Setup
 
