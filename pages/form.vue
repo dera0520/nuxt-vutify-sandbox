@@ -1,10 +1,12 @@
 <template>
   <v-form ref="form">
-    <h1>form</h1>
+    <h1>
+      form
+    </h1>
+
     <v-row>
       <v-col cols="12">
         <v-text-field
-          v-model="model"
           :counter="max"
           :rules="rules"
           label="テキスト入力"
@@ -30,7 +32,7 @@
       <v-col cols="12">
         <v-select
           :items="selectItems"
-          multiple="true"
+          :multiple=true
           label="セレクト入力(multiple)"
           dense
         />
@@ -46,14 +48,14 @@
       <v-col cols="12">
         <v-textarea
           label="テキストエリア"
-          auto-grow="true"
+          :auto-grow=true
+          v-model="textAreaData"
         />
       </v-col>
 
       <v-col cols="12">
         <v-menu
           ref="menu"
-          v-model="menu"
           :close-on-content-click="false"
           transition="scale-transition"
           offset-y
@@ -91,20 +93,17 @@
           :disabled="!valid"
           color="success"
           class="mr-4"
-          @click="validate"
         >
           送信
         </v-btn>
         <v-btn
           color="error"
           class="mr-4"
-          @click="reset"
         >
           リセット
         </v-btn>
         <v-btn
           color="warning"
-          @click="resetValidation"
         >
           Reset Validation
         </v-btn>
@@ -119,7 +118,7 @@ export default {
     allowSpaces: false,
     match: 'Foobar',
     max: 0,
-
+    textAreaData: "hogefuga",
     // 日付
     date: '2020-01-01',
     dates: ['2020-01-01', '2020-01-31'],

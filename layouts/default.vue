@@ -2,11 +2,8 @@
   <v-app>
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
       fixed
       app
-      color="secondary"
     >
       <v-list>
         <v-list-item
@@ -17,7 +14,7 @@
           exact
         >
           <v-list-item-action>
-            <v-icon class="black--text">{{ item.icon }}</v-icon>
+            <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" class="black--text"/>
@@ -29,16 +26,8 @@
       :clipped-left="clipped"
       fixed
       app
-      color="primary"
-      class="white--text"
     >
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-        class="white--text"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="title" />
     </v-app-bar>
     <v-main>
@@ -46,6 +35,11 @@
         <nuxt />
       </v-container>
     </v-main>
+    <v-footer
+      app
+    >
+      <span>&copy; {{ new Date().getFullYear() }}</span>
+    </v-footer>
   </v-app>
 </template>
 
@@ -53,9 +47,7 @@
 export default {
   data () {
     return {
-      clipped: true,
-      drawer: true,
-      fixed: true,
+      drawer: false,
       items: [
         {
           icon: 'mdi-apps',
@@ -78,7 +70,6 @@ export default {
           to: '/form'
         },
       ],
-      miniVariant: true,
       right: true,
       rightDrawer: false,
       title: '管理画面'
