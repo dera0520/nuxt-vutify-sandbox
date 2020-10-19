@@ -1,7 +1,14 @@
-import colors from 'vuetify/es5/util/colors'
-import ja from 'vuetify/es5/locale/ja.js'
+// import colors from 'vuetify/es5/util/colors'
+// import ja from 'vuetify/es5/locale/ja.js'
+// const { colors } = require('vuetify/es5/util/colors.js.map')
+const { ja } = require('vuetify/es5/locale/ja')
 
-export default {
+module.exports = {
+  server: {
+    port: process.env.APP_PORT,
+    host: process.env.APP_HOST,
+    timing: false
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - vuetify-admin',
@@ -48,7 +55,8 @@ export default {
       dark: false,
       themes: {
         light: {
-          primary: '#673AB7',
+          primary_text: "#de0a0a",
+          primary: '#e5e3ec',
           secondary: '#F3E5F5',
           accent: '#ffc107',
           error: '#f44336',
@@ -56,20 +64,21 @@ export default {
           info: '#03a9f4',
           success: '#4caf50'
         },
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
+        // dark: {
+        //   primary: colors.blue.darken1,
+        //   accent: colors.grey.darken3,
+        //   secondary: colors.amber.darken3,
+        //   info: colors.teal.lighten1,
+        //   warning: colors.amber.base,
+        //   error: colors.deepOrange.accent4,
+        //   success: colors.green.accent3
+        // }
       }
     }
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    loadingScreen: false
   }
 }
