@@ -23,7 +23,6 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      :clipped-left="clipped"
       fixed
       app
     >
@@ -45,6 +44,11 @@
 
 <script>
 export default {
+  computed: {
+    state() {
+      return this.$store.state
+    }
+  },
   data () {
     return {
       drawer: false,
@@ -55,11 +59,6 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-account-key',
-          title: 'Login',
-          to: '/login'
-        },
-        {
           icon: 'mdi-table',
           title: 'Table',
           to: '/table'
@@ -68,6 +67,11 @@ export default {
           icon: 'mdi-send',
           title: 'Form',
           to: '/form'
+        },
+        {
+          icon: 'mdi-logout',
+          title: 'logout',
+          to: '/logout'
         },
       ],
       right: true,

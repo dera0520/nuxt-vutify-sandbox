@@ -1,9 +1,20 @@
 // import colors from 'vuetify/es5/util/colors'
 // import ja from 'vuetify/es5/locale/ja.js'
 // const { colors } = require('vuetify/es5/util/colors.js.map')
-const { ja } = require('vuetify/es5/locale/ja')
+const {ja} = require('vuetify/es5/locale/ja')
 
 module.exports = {
+  mode: 'spa',
+  telemetry: false,
+  env: {
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+    FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
+    FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
+    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
+    FIREBASE_STORAGE_BUKET: process.env.FIREBASE_STORAGE_BUKET,
+    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    FIREBASE_API_ID: process.env.FIREBASE_API_ID,
+  },
   server: {
     port: process.env.APP_PORT,
     host: process.env.APP_HOST,
@@ -14,22 +25,24 @@ module.exports = {
     titleTemplate: '%s - vuetify-admin',
     title: 'vuetify-admin',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {hid: 'description', name: 'description', content: ''}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
 
+  router: {
+    middleware: ['authenticated']
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -41,13 +54,12 @@ module.exports = {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [
-  ],
+  modules: [],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     lang: {
-      locales: { ja },
+      locales: {ja},
       current: 'ja',
     },
     customVariables: ['~/assets/variables.scss'],
@@ -80,5 +92,5 @@ module.exports = {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     loadingScreen: false
-  }
+  },
 }
